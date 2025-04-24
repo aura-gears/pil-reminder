@@ -1,0 +1,32 @@
+{
+    "name": "pil-reminder",
+    "version": "1.0.0",
+    "main": "app.js",
+    "scripts": {
+        "dev": "clear && nodemon semver.js",
+        "test": "node tests/**/*.test.js"
+    },
+    "keywords": [
+        "Pil Reminder",
+        "Rest API",
+        "Whatsapp",
+        "Whatsapp Automation"
+    ],
+    "author": "",
+    "maintenance": "tomsdroid <droidtoms@gmail.com>",
+    "license": "ISC",
+    "description": "Pil Reminder merupakan aplikasi Rest API yang berfokus pada Mengingat Pengguna untuk Minum Obat tepat waktu dan hanya sebagai jembatan untuk menerima dapat di akses melalui whatsapp.",
+    "dependencies": {
+        "body-parser": "^2.2.0",
+        "cors": "^2.8.5",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "express-ejs-layouts": "^2.5.1"
+    },
+    "devDependencies": {
+        "dotenv": "^16.5.0",
+        "morgan": "^1.10.0",
+        "nodemon": "^3.1.10",
+        "supertest": "^7.1.0"
+    }
+}
