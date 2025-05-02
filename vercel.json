@@ -1,5 +1,4 @@
 {
     "version": 2,
-    "builds": [{ "src": "semver.js", "use": "@vercel/node" }],
-    "routes": [{ "source": "/(.*)", "destination": "semver.js" }]
+    "builds": [{ "src": "semver.js", "use": "@vercel/node" }]
 }
