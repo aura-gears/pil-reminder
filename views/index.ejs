@@ -1,261 +1,51 @@
+<div class="w-100 h-100" style="display:flex;align-items:center;justify-content:center;">
+        <div class="card p-3 mt-5">
+            <h1>Selamat datang di Pil Reminder</h1>
+            <hr />
+            <p>Pil Reminder merupakan system pengingat waktu minum obat secara otomatis yang akan mengirimkan sebuah pesan kepada user yang telah menambahkan daftar obat yang ingin diberikan waktu pengingat.</p>
+            <a href="/login" class="btn btn-primary fw-bold text-uppercase">Login Pil Reminder</a>
+        </d>
+</div>
 
-            <!-- List Pengingat -->
-            <div
-                class="card mt-1.5 shadow"
-                style="cursor: pointer"
-                id="dataWrap"
-            >
-                <div
-                    class="card-body d-flex align-items-center justify-content-between"
-                >
-                    <div
-                        class="labelPil d-flex align-items-center justify-content-center"
-                    >
-                        <img
-                            src="./img/medicine.png"
-                            alt="Capsule"
-                            id="labelPict"
-                            width="25"
-                        />
-                        <span class="h3 pt-2 ms-2 text-uppercase fw-bold"
-                            >Paracetamol</span
-                        >
-                    </div>
-                    <div
-                        class="rounded bg-secondary-subtle d-flex align-items-center px-3 py-1"
-                    >
-                        <img
-                            src="./img/capsule.png"
-                            alt="Capsule"
-                            id="labelPict"
-                            width="13.5"
-                        /><span id="curentPils" class="fs-5 ms-2">8</span>
-                    </div>
-                </div>
-                <div class="card-footer d-none" id="dataCard">
-                    <div
-                        class="card bg-secondary-subtle mb-3 p-2"
-                        id="codeCard"
-                    >
-                        <p id="data">List of Data</p>
-                        <div class="btn btn-secondary mt-1" id="copyBtn">
-                            copy
-                        </div>
-                    </div>
-                    <div
-                        class="d-flex align-items-center justify-content-between"
-                    >
-                        <button type="button" class="btn btn-sm btn-primary">
-                            Pil Tersisa
-                            <span class="badge text-bg-secondary">8 pil</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-primary">
-                            Total Awal
-                            <span class="badge text-bg-secondary">9 pil</span>
-                        </button>
-                        <button type="button" class="btn btn-sm btn-primary">
-                            Durasi
-                            <span class="badge text-bg-secondary">Auto</span>
-                        </button>
-                    </div>
-                    <div>
-                        <sub class="text-center text-secondary"
-                            >24/04/2025, 00.05</sub
-                        >
-                    </div>
-                </div>
-            </div>
-            <!-- Script Card Data -->
-            <script type="text/javascript" charset="utf-8">
-                const dataCard = document.querySelector("#dataCard");
-                const dataWrap = document.querySelector("#dataWrap");
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+  <h1>Selamat datang, <%= username %>!</h1>
+  <a href="/logout">Logout</a>
 
-                dataWrap.addEventListener("click", e =>
-                    dataCard.classList.toggle("d-none")
-                );
-            </script>
+  <h2>Form Tambah Obat</h2>
+  <form method="post" action="/add-drug">
+    <label>Nama Obat: <input type="text" name="nama_obat" required></label><br/>
+    <label>Tipe Obat: <input type="text" name="tipe_obat" required></label><br/>
+    <label>Ketentuan Obat: <input type="text" name="ketentuan_obat" required></label><br/>
+    <label>Sehari Berapa Kali (angka): <input type="number" name="sehari_berapa" min="1" max="3" required></label><br/>
+    <label>Sekali Berapa (dosis): <input type="number" name="sekali_berapa" min="1" required></label><br/>
+    <label>Waktu Pengingat (pisah dengan koma, jam 24 format, misal: 8,14,20): <input type="text" name="waktu_pengingat" required></label><br/>
+    <label>Total Obat (jumlah tablet/botol): <input type="number" name="total_obat" min="1" required></label><br/>
+    <button type="submit">Tambah Obat</button>
+  </form>
 
-            <!-- Button trigger modal -->
-            <button
-                type="button"
-                class="btn btn-primary position-absolute shadow"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-                style="bottom: 3rem; right: 2rem"
-            >
-                <i class="bi bi-plus-lg fs-2"></i>
-            </button>
-
-            <!-- Modal -->
-            <div
-                class="modal fade"
-                id="staticBackdrop"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabindex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-            >
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1
-                                class="modal-title fs-5"
-                                id="staticBackdropLabel"
-                            >
-                                Tambahkan Pengingat
-                            </h1>
-                            <button
-                                type="button"
-                                class="btn-close"
-                                data-bs-dismiss="modal"
-                                aria-label="Close"
-                            ></button>
-                        </div>
-                        <div class="modal-body">
-                            <form action="" method="post">
-                                <div class="mb-3">
-                                    <label for="namaObat" class="form-label"
-                                        >Nama Obat</label
-                                    >
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="namaObat"
-                                        name="text"
-                                        placeholder="Ex: Paracetamol"
-                                        autofocus
-                                    />
-                                </div>
-                                <!-- Tipe Obat -->
-                                <div class="mb-3">
-                                    <label for="obatType" class="form-label"
-                                        >Tipe Obat</label
-                                    >
-                                    <select
-                                        class="form-select form-select-md mb-3"
-                                        aria-label="Large select example"
-                                        id="obatType"
-                                    >
-                                        <option selected>
-                                            Pilih Tipe Obat
-                                        </option>
-                                        <option value="pilKapsul">
-                                            Pil Kapsul
-                                        </option>
-                                        <option value="pilTablet">
-                                            Pil Tablet
-                                        </option>
-                                        <option value="sirup">Sirup</option>
-                                    </select>
-                                </div>
-                                <!-- Syarat Minum Obat -->
-                                <div class="mb-3">
-                                    <label for="syaratObat" class="form-label"
-                                        >Syarat Obat</label
-                                    >
-                                    <select
-                                        class="form-select form-select-md mb-3"
-                                        aria-label="Large select example"
-                                        id="obatType"
-                                    >
-                                        <option selected>
-                                            Syarat Minum Obat!
-                                        </option>
-                                        <option value="sebelum makan">
-                                            Sebelum Makan
-                                        </option>
-                                        <option value="setelah makan">
-                                            Setelah Makan
-                                        </option>
-                                        <option value="satu jam sebelum makan">
-                                            Satu Jam Sebelum Makan
-                                        </option>
-                                        <option value="satu jam setelah makan">
-                                            Satu Jam Setelah Makan
-                                        </option>
-                                    </select>
-                                </div>
-                                <!-- Berapa Kali Sehari -->
-                                <div class="mb-3">
-                                    <label for="xObat" class="form-label"
-                                        >Sehari Berapa Kali</label
-                                    >
-                                    <input
-                                        type="number"
-                                        class="form-control"
-                                        id="xObat"
-                                        name="xObat"
-                                        placeholder="Ex: 3"
-                                        autofocus
-                                    />
-                                </div>
-                                <!-- Berapa Obat Sehari -->
-                                <div class="mb-3">
-                                    <label for="onePilInput" class="form-label"
-                                        >Sekali Berapa Pil</label
-                                    >
-                                    <input
-                                        type="number"
-                                        class="form-control"
-                                        id="onePilInput"
-                                        name="onePilInput"
-                                        placeholder="Ex: 2"
-                                        aria-describeby="totalObatDesc"
-                                        autofocus
-                                    />
-                                    <div id="totalObatDesc" class="form-text">
-                                        Total obat mempengaruhi pengingat
-                                        otomatis
-                                    </div>
-                                </div>
-                                <!-- Total Obat -->
-                                <div class="mb-3">
-                                    <label for="totalObat" class="form-label"
-                                        >Total Obat
-                                    </label>
-                                    <input
-                                        type="text"
-                                        class="form-control"
-                                        id="totalObat"
-                                        name="totalObat"
-                                        placeholder="Ex: 9 pil"
-                                        aria-describeby="totalObatDesc"
-                                        autofocus
-                                    />
-                                    <div id="totalObatDesc" class="form-text">
-                                        Total obat mempengaruhi pengingat
-                                        otomatis
-                                    </div>
-                                </div>
-                                <!-- Atur Waktu Mulai Minum Obat Obat -->
-                                <div class="mb-3">
-                                    <label
-                                        for="startReminder"
-                                        class="form-label"
-                                        >Atur Waktu Awal Minum Obat</label
-                                    >
-                                    <input
-                                        type="datetime-local"
-                                        class="form-control"
-                                        id="startReminder"
-                                        name="startReminder"
-                                        autofocus
-                                    />
-                                </div>
-                                <div class="modal-footer">
-                                    <button
-                                        type="submit"
-                                        class="btn btn-primary w-50 text-uppercase fw-bolder shadow"
-                                        name="tambahPengingat"
-                                    >
-                                        <i class="bi bi-plus-lg"></i>
-                                        Tambah
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+  <h2>Daftar Obat</h2>
+  <% if (!drugs) { %>
+    <p>Ooops! List Obat Masih Kosong, Yuk Tambah Obat Dulu...</p>
+  <% } else { %>
+    <ul>
+      <% drugs.forEach(drug => { %>
+        <li>
+          <b><%= drug.nama_obat %></b> - <%= drug.tipe_obat %><br/>
+          Ketentuan: <%= drug.ketentuan_obat %><br/>
+          Dosis: <%= drug.sehari_berapa %>x sehari, <%= drug.sekali_berapa %> per kali minum<br/>
+          Waktu Pengingat: <%= drug.waktu_pengingat %><br/>
+          Total Obat: <%= drug.total_obat %> 
+          <% if (drug.total_obat === 0) { %>
+            <span style="color:red; font-weight:bold;">(Obat Habis)</span>
+          <% } %>
+        </li>
+      <% }) %>
+    </ul>
+  <% } %>
+</body>
+</html>

@@ -1,25 +1,38 @@
 // import
-const fs = require("fs");
+const { Router } = require("express");
 
-// Controllers
-class PilControllers {
-    constructor(
-        obatName,
-        obatTypes,
-        obatTerm,
-        sehariBerapa,
-        sekaliBerapa,
-        totalObat,
-        reminder
-    ) {
-        this.nama = obatName;
-        this.tipe = obatTypes;
-        this.syarat = obatTerm;
-        this.sehariBerapa = sehariBerapa;
-        this.sekaliBerapa = sekaliBerapa;
-        this.totalObat = totalObat;
-        this.pengingat = reminder;
+const db = require("./services/database");
+const userGreating = require("./helpers");
+const {
+    createUser,
+    readUser,
+    readAllUsers,
+    updateUser,
+    deleteUser,
+    getUserWithDrug
+} = require("./services/user-services");
+const {
+    createDrug,
+    readDrug,
+    readAllDrugs,
+    updateDrug,
+    deleteDrug,
+    getDrugWithUser,
+    searchDrugs
+} = require("./services/drug-services");
+
+const auth = async user => {
+    if (user.username) {
     }
-}
+};
 
-// module.exports = PilControllers;
+const main = async () => {
+    const user = {
+        username: "tomsdroid",
+        password: "secret2"
+    };
+    let signUp = await db.from("users").select("username, password");
+    console.log(signUp);
+};
+
+main();

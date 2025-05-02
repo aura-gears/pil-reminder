@@ -1,4 +1,28 @@
-
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Pil Reminder ~ Login </title>
+        <link
+            rel="stylesheet"
+            href="./css/bs5.css"
+            type="text/css"
+            media="all"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+        />
+        <script
+            src="./js/bs5.js"
+            type="text/javascript"
+            charset="utf-8"
+        ></script>
+    </head>
+    <body>
+        <div class="container">
             <div class="card p-2 w-100 shadow mt-5 p-3">
                 <div
                     class="logoBrand w-100 d-flex align-items-center justify-content-center my-5"
@@ -12,51 +36,62 @@
                         Pil Reminder
                     </h1>
                 </div>
-                <form>
+                <form action="/signup" method="post">
                     <div class="mb-3">
                         <label for="nameInput" class="form-label"
-                            >Nama Lengkap</label
+                            >Username</label
                         >
                         <input
                             type="text"
                             class="form-control"
                             id="nameInput"
-                            name="email"
+                            name="username"
+                            placeholder="Ex: johndoe"
                             autofocus
                         />
                     </div>
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label"
-                            >Alamat Email</label
+                        <label for="nameInput" class="form-label"
+                            >Fullname</label
                         >
                         <input
-                            type="email"
+                            type="text"
                             class="form-control"
-                            id="exampleInputEmail1"
-                            name="email"
-                            aria-describedby="emailHelp"
+                            id="nameInput"
+                            name="fullname"
+                            placeholder="John Doe"
+                            autofocus
                         />
                     </div>
                     <div class="mb-3">
                         <label for="phoneInput" class="form-label"
-                            >No. Ponsel</label
+                            >Phone Number</label
                         >
                         <input
-                            type="number"
+                            type="tel"
                             class="form-control"
                             id="phoneInput"
                             name="phone"
+                            placeholder="858xxxxxxxx"
                         />
                     </div>
                     <div class="mb-3">
                         <label for="exampleInputPassword1" class="form-label"
-                            >Kata Sandi</label
+                            >Password</label
                         >
                         <input
                             type="password"
                             class="form-control"
                             id="exampleInputPassword1"
                             name="password"
+                        />
+                    </div>
+                    <div class="mb-3">
+                        <input
+                            type="hidden"
+                            class="form-control"
+                            id="exampleInputPassword1"
+                            name="isAdmin" value="false"
                         />
                     </div>
                     <button
@@ -73,9 +108,12 @@
             >
                 <p class="d-flex">
                     Sudah punya akun?
-                    <a href="#" class="nav-link ms-2 text-primary fw-bolder"
+                    <a href="/login" class="nav-link ms-2 text-primary fw-bolder"
                         >Masuk Sekarang</a
                     >
                 </p>
             </div>
         </div>
+        </div>
+    </body>
+</html>
