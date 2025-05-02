@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "app.js",
     "scripts": {
+	"build-vercel":"echo test",
         "dev": "clear && nodemon semver"
     },
     "keywords": [
